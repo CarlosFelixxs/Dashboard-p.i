@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+
+  <link rel="stylesheet" href="dashboard.css" />
+
+  <!-- Da acesso a lib -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="teste.js"></script>
+</head>
+
+<body>
+  <!-- Gráfico de Linhas -->
+  <div class="graph">
+    <canvas id="chartline" style="width: 100%; height: 100%;"></canvas>
+  </div>
+
+  <!-- Gráfico de Barras -->
+  <div class="graph">
+    <canvas id="chartbar" style="width: 100%; height: 100%;"></canvas>
+  </div>
+
+  <!-- Grafico Pizza -->
+  <div class="graph">
+    <canvas id="chartpie" style="width: 100%; height: 100%;"></canvas>
+  </div>
+
+  </div>
+</body>
+
+</html>
+<script>
+
+  var linha = document.getElementById('chartline').getContext('2d');
+  var myChartline = new Chart(linha, {
+    type: 'line',
+    data: {
+      labels: [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021],
+      datasets: [{
+        label: 'Salário minímo (R$)',
+        data: [540.00, 622.00, 678.00, 724.00, 788.00, 880.00, 937.00, 954.00, 998.00, 1045.00, 1100.00],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 140, 0, 0.2)',
+          'rgba(255, 20, 147, 0.2)',
+          'rgba(123, 104, 238, 0.2)',
+          'rgba(0, 255, 0, 0.2)',
+          'rgba(119, 136, 153, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255, 140, 0, 1)',
+          'rgba(255, 20, 147, 1)',
+          'rgba(123, 104, 238, 1)',
+          'rgba(0, 255, 0, 1)',
+          'rgba(119, 136, 153, 1)'
+        ],
+        borderWidth: 5
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+
+  var barras = document.getElementById('chartbar').getContext('2d');
+  var myChartbar = new Chart(barras, {
+    type: 'bar',
+    data: {
+      labels: ["Norte", "Nordeste", "Sudeste", "Sul", "Sudeste"],
+      datasets: [{
+        label: 'Média de salário por região (R$)',
+        data: [1711, 1539, 2585, 2499, 2498],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)'
+        ],
+        borderWidth: 5
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+
+  var Pizza = document.getElementById('chartpie').getContext('2d');
+  var myChartpie = new Chart(Pizza, {
+    type: 'pie',
+    data: {
+      labels: ["Brasil (total)", "Norte", "Nordeste", "Sudeste", "Sul", "Centro-oeste"],
+      datasets: [{
+        label: '',
+        data: [11.00, 10.6, 13.6, 11.4, 6.8, 9.3],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(255, 20, 147, 0.2)',
+          'rgba(123, 104, 238, 0.2)',
+          'rgba(0, 255, 0, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(255, 20, 147, 1)',
+          'rgba(123, 104, 238, 1)',
+          'rgba(0, 255, 0, 1)'
+        ],
+        borderWidth: 5
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
